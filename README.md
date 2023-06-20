@@ -1,2 +1,30 @@
-# navigable.attr
-Make elements navigatable
+# [u1-navigable] - attribute
+Make elements navigable
+
+## Ussage
+
+```html
+<a href="#navigableTest">open dialog</a>
+<dialog u1-navigable id="navigableTest">
+    go back using esc
+</dialog>
+```
+
+## Install
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/u1ui/navigable.attr@x.x.x/navigable.min.js" type=module>
+```
+
+## Demos
+
+[minimal.html](http://gcdn.li/u1ui/navigable.attr@main/tests/minimal.html)  
+[targetObserver.html](http://gcdn.li/u1ui/navigable.attr@main/tests/targetObserver.html)  
+[test.html](http://gcdn.li/u1ui/navigable.attr@main/tests/test.html)  
+[U1TargetObserver.html](http://gcdn.li/u1ui/navigable.attr@main/tests/U1TargetObserver.html)  
+
+## About
+
+- MIT License, Copyright (c) 2022 <u1> (like all repositories in this organization) <br>
+- Suggestions, ideas, finding bugs and making pull requests make us very happy. ♥
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Attribute u1-href tests</title>
+
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/base.css/full.css">
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/variables.min.css">
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/classless.min.css">
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/more.min.css">
+        <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/simple.min.css">
+
+        <script src="../navigable.js" type=module></script>
+
+    <body>
+
+<section>
+    <h1>Dialog</h1>
+    <a href="#dialog1">navigate to #dialog1</a>
+    <!--todo: button onclick="dialog1.showModal()">open by javascript</button-->
+
+    <dialog id="dialog1" u1-navigable>
+        dialog 1 is open
+        <br>
+        <a href="#dialog2">navigate to #dialog2</a>
+
+        <section>
+            <h1>Checkbox</h1>
+
+            <input type=checkbox u1-navigable id=checkbox1>
+            <input type=checkbox u1-navigable id=checkbox2>
+            <input type=checkbox u1-navigable id=checkbox3>
+
+        </section>
+
+    </dialog>
+
+    <dialog id="dialog2" u1-navigable>
+        dialog 2 is open
+    </dialog>
+
+</section>
+
+
+
+<section>
+    <h1>Details</h1>
+
+    <a href="#details1">navigate to #details1</a>
+    <!--todo: button onclick="dialog1.showModal()">open by javascript</button-->
+
+    <details u1-navigable id=details1>
+        <summary>summary 1</summary>
+        More rext
+    </details>
+    <details u1-navigable id=details2>
+        <summary>summary 2</summary>
+        More rext
+    </details>
+
+</section>
+
+
+<!--section>
+    <h1>Checkbox</h1>
+
+    <input type=checkbox u1-navigable id=checkbox1>
+    <input type=checkbox u1-navigable id=checkbox2>
+    <input type=checkbox u1-navigable id=checkbox3>
+
+</section-->
