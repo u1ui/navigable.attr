@@ -1,5 +1,5 @@
 # [u1-navigable] - attribute
-Make elements navigable
+Make elements navigatable
 
 ## Ussage
 
