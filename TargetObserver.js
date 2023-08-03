@@ -28,7 +28,7 @@ export class TargetObserver {
      */
     _matches(el){
         if (!el) return false;
-        return el!==false && this.opts.matches==null || el.matches(this.opts.matches);
+        return this.opts.matches==null || el.matches(this.opts.matches);
     }
 
     /**
@@ -37,7 +37,7 @@ export class TargetObserver {
      */
     _testOn(el){
         this.opts.on && this._matches(el) && this.opts.on(el);
-        if (this.opts.in && el) {
+        if (this.opts.in && el) { // todo: && this.opts.matches ??
             let closest = el.closest(this.opts.matches);
             while (closest) {
                 this.opts.in(closest);
@@ -47,7 +47,7 @@ export class TargetObserver {
         }
         for (const pTarget of this.parentTargets) {
             if (el && pTarget.contains(el)) continue;
-            this.opts.out && this.opts.out(pTarget);
+            this.opts?.out(pTarget);
             this.parentTargets.delete(pTarget);
         }
     }
@@ -56,7 +56,7 @@ export class TargetObserver {
      * @param {Element} el
      * @private
      */
-    _testOff(el, newTarget){
+    _testOff(el){
         this.opts.off && this._matches(el) && this.opts.off(el);
         this.opts.out && this._matches(el) && this.opts.out(el);
     }
@@ -82,6 +82,6 @@ addEventListener('hashchange', checkTarget);
 // const observer = new TargetObserver({
 //     in: (target) => console.log(target),
 //     out: (target) => console.log(target),
-//     matches: '.element',
+//     matches: '.element', // optional
 // })
 // observer.disconnect();
