@@ -13,7 +13,7 @@ Make elements navigatable
 ## Install
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/u1ui/navigable.attr@x.x.x/navigable.min.js" type=module>
+<script src="https://cdn.jsdelivr.net/gh/u1ui/navigable.attr@x.x.x/navigable.min.js" type=module></script>
 ```
 
 ## Demos
