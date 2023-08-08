@@ -7,7 +7,6 @@ import {U1TargetObserver, toggleParam} from './U1TargetObserver.js';
 // translate hash-links to "u1-navigable"-elements into "u1-target"-params
 new TargetObserver({
 	on: (el) => {
-		console.log(el)
 		toggleParam(el.id, true, true);
 		const url = new URL(window.location);
 		url.hash = '';
