@@ -4,8 +4,8 @@ Make elements navigatable
 ## Ussage
 
 ```html
-<a href="#navigableTest">open dialog</a>
-<dialog u1-navigable id="navigableTest">
+<a href="#navigable">open dialog</a>
+<dialog u1-navigable id=navigable>
     go back using esc
 </dialog>
 ```
