@@ -1,5 +1,3 @@
-// todo security check, is querySelector harmfull for user-input?
-
 import {TargetObserver} from './TargetObserver.js';
 import {U1TargetObserver, toggleParam} from './U1TargetObserver.js';
 
@@ -8,11 +6,9 @@ import {U1TargetObserver, toggleParam} from './U1TargetObserver.js';
 new TargetObserver({
 	on: (el) => {
 		toggleParam(el.id, true, true);
-		const url = new URL(window.location);
+		const url = new URL(location);
 		url.hash = '';
-		window.history.replaceState(null, '', url.href);
-	},
-	off: (el) => {
+		history.replaceState(null, '', url.href);
 	},
 	matches: '[u1-navigable]'
 })
@@ -45,20 +41,50 @@ addEventListener('toggle',e=>{
 },true);
 
 
-/* checkbox */
+/* checkbox and radio */
 new U1TargetObserver({
 	on:  el => el.checked = true,
 	off: el => el.checked = false,
-	matches: 'input[type=checkbox][u1-navigable]',
+	matches: 'input:is([type=checkbox],[type=radio])[u1-navigable]',
 });
 addEventListener('change',e=>{
 	const el = e.target;
-	if (!el.matches('input[type=checkbox][u1-navigable][id]')) return;
+	if (!el.matches('input:is([type=checkbox],[type=radio])[u1-navigable][id]')) return;
+
+	if (el.type === 'radio') {
+		const elements = el.form ? el.form.elements[el.name] : document.getElementsByName(el.name);
+		elements.forEach(e => toggleParam(e.id, false)); // toggleParam(e.id, false, TRUE) does not work as expected, why?
+	}
+
 	if (el.checked) toggleParam(el.id, true);
 	else toggleParam(el.id, false);
 });
 
 
+/* popover */
+new U1TargetObserver({
+    on: el => el.showPopover(),
+    off: el => el.hidePopover(),
+    matches: '[popover][u1-navigable]',
+});
+addEventListener('toggle', e => {
+    const el = e.target;
+    if (!el.matches('[popover][u1-navigable][id]')) return;
+	const newState = e.newState;
+	toggleParam(el.id, newState === 'open');
+}, true);
+
+
+
+/* *
+// todo: unified close button
+addEventListener('click', e => {
+	const el = e.target;
+    if (!el.matches('[u1-navigable-close]')) return;
+	const id = el.getAttribute('u1-navigable-close') || el.closest('[u1-navigable]').id;
+	toggleParam(id, false);
+}, true);
+/* */
 
 // beta
 // u1 unified api

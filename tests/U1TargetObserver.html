@@ -10,11 +10,17 @@
         <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/classless.min.css">
         <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/more.min.css">
         <link rel=stylesheet href="https://cdn.jsdelivr.net/gh/u1ui/classless.css/simple.min.css">
+        <script type=module src="../../u1/tests/test-init.js"></script>
 
 <body>
 
 <section>
     <h1>Details</h1>
+
+    <button onclick="toggleParam('details1', true)">open</button>
+    <button onclick="toggleParam('details1', false)">close</button>
+    <button onclick="toggleParam('details1', null)">toggle</button>
+    <button onclick="toggleParam('details1', null, true)">toggle, no browser-back-history</button>
 
     <details u1-navigable id=details1>
         <summary>summary 1</summary>
@@ -25,10 +31,14 @@
         More rext
     </details>
 
+
 </section>
 
 <script type=module>
+
 import {U1TargetObserver, toggleParam} from "../U1TargetObserver.js";
+window.toggleParam = toggleParam;
+
 
 new U1TargetObserver({
     on:  el => el.open = true,

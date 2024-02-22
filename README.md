@@ -1,7 +1,7 @@
 # [u1-navigable] - attribute
 Make elements navigatable
 
-## Ussage
+## Usage
 
 ```html
 <a href="#navigable">open dialog</a>
